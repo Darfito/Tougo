@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vh;
+  font-family: "Poppins";
+  background-image: url("/asset/img/layout_desktop.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 100vw;
+  transform: translateY(71px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .container--Judul {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 96px;
+  margin: 10px;
+}
+.container .container--tagline {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  margin: 10px;
+}
+.container .container--button {
+  border: none;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 30px;
+  background: #7a96c7;
+}
+.container .container--button:hover {
+  border: 1px solid #2691d9;
+  background: #fff;
+  transition: 0.5s;
+}
+
+a {
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 18px;
+  color: #fff;
+}
+
+.container--button:hover {
+  text-decoration: none;
+  border-color: #2691d9;
+  transition: 0.5s;
+}/*# sourceMappingURL=style.css.map */
