@@ -14,7 +14,7 @@
     
 
 
-    <title>main</title>
+    <title>{{ $title }}</title>
 </head>
 
 <body>

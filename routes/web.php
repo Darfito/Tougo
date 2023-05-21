@@ -19,23 +19,40 @@ use App\Http\Controllers\DestinationController;
 // });
 
 Route::get('/', function () {
-    return view('landing');
+    return view('landing', [
+        "title" => "Welcome!"
+    ]);
 });
-Route::get('/main', function () {
-    return view('layouts.main');
-});
-Route::get('/app', function () {
-    return view('layouts.app');
-});
+// login and register route
 Route::get('/register', function () {
     return view('auth.register');
 });
-Route::get('/destination', function () {
-    return view('destination');
+Route::get('/login', function () {
+    return view('auth.login');
 });
+// about us, stories, and destination route
 Route::get('/stories', function () {
-    return view('stories');
+    return view('stories',[
+        "title" => "stories"
+    ] );
 });
+Route::get('/destination', function () {
+    return view('destination', [
+        "title" => "destination"
+    ]);
+});
+Route::get('/aboutus', function () {
+    return view('aboutus',[
+        "title" => "about us"
+    ]);
+});
+
+// profile
+Route::get('/profile', function () {
+    return view('account.profile');
+});
+
+// admin route
 Route::get('/dashSto', function () {
     return view('admin.dashboardst');
 });
@@ -46,6 +63,14 @@ Route::get('/dashCreate', function () {
 });
 Route::get('/dashEdit', function () {
     return view('admin.editdes');
+});
+
+// layout route
+Route::get('/main', function () {
+    return view('layouts.main');
+});
+Route::get('/app', function () {
+    return view('layouts.app');
 });
 
 
