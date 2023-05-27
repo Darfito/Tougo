@@ -13,7 +13,6 @@
       rel="stylesheet"
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
     />
-    <link rel="stylesheet" href="" />
     <title>Admin</title>
   </head>
   <body>
@@ -26,28 +25,28 @@
       <div class="sidebar--menu">
         <ul>
           <li>
-            <a href="../../Konten/Dashboard/dashboard.html" class="active"
+            <a href="/dash" class="active"
               ><span class="las la-igloo"></span><span>Dashboard</span></a
             >
           </li>
           <li>
-            <a href="../../Konten/Dashboard/dashboardc.html"
+            <a href="/dashCus"
               ><span class="las la-users"></span><span>Customers</span></a
             >
           </li>
           <li>
-            <a href="../../Konten/Dashboard/dashboardd.html"
+            <a href="/dashDes"
               ><span class="las la-map-marker-alt"></span
               ><span>Destination</span></a
             >
           </li>
           <li>
-            <a href="../../Konten/Dashboard/dashboard_st.html"
+            <a href="/dashSto"
               ><span class="las la-book"></span><span>Stories</span></a
             >
           </li>
           <li>
-            <a href="../../Konten/Login.html" 
+            <a href="/login" 
               ><span class="las la-sign-out-alt"></span><span>Sign Out</span></a
             >
           </li>

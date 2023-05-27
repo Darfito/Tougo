@@ -21,23 +21,23 @@
         <div class="sidebar--menu">
             <ul>
                 <li>
-                    <a href="../../Konten/Dashboard/dashboard.html"><span
+                    <a href="/dash"><span
                             class="las la-igloo"></span><span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="../../Konten/Dashboard/dashboardc.html"><span
+                    <a href="/dashCus"><span
                             class="las la-users"></span><span>Customers</span></a>
                 </li>
                 <li>
-                    <a href="../../Konten/Dashboard/dashboardd.html" class="active"><span
+                    <a href="/dashDes" class="active"><span
                             class="las la-map-marker-alt"></span><span>Destination</span></a>
                 </li>
                 <li>
-                    <a href="../../Konten/Dashboard/dashboard_st.html"><span
+                    <a href="/dashSto"><span
                             class="las la-book"></span><span>Stories</span></a>
                 </li>
                 <li>
-                    <a href="../../Konten/Login.html"><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
+                    <a href="/login"><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
                 </li>
             </ul>
         </div>

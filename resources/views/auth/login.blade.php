@@ -12,7 +12,7 @@
 
     <div class="center">
         <h1>Login</h1>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action='/login'>
             @csrf
             <div class="txt_field">
                 <input id="email" type="email" class="input form-control @error('email') is-invalid @enderror"

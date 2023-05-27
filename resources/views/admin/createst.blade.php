@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
-    <link rel="stylesheet" href="css/admin/createdes.css" />
+    <link rel="stylesheet" href="css/admin/createst.css" />
     <title>Admin</title>
 </head>
 
@@ -22,23 +22,23 @@
         <div class="sidebar--menu">
             <ul>
                 <li>
-                    <a href="/dash"><span
+                    <a href="../../Konten/Dashboard/dashboard.html"><span
                             class="las la-igloo"></span><span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="/dashCus"><span
+                    <a href="../../Konten/Dashboard/dashboardc.html"><span
                             class="las la-users"></span><span>Customers</span></a>
                 </li>
                 <li>
-                    <a href="/dashDes" class="active"><span
+                    <a href="../../Konten/Dashboard/dashboardd.html" ><span
                             class="las la-map-marker-alt"></span><span>Destination</span></a>
                 </li>
                 <li>
-                    <a href="/dashSto"><span
+                    <a href="../../Konten/Dashboard/dashboard_st.html" class="active"><span
                             class="las la-book"></span><span>Stories</span></a>
                 </li>
                 <li>
-                    <a href="/login"><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
+                    <a href="../../Konten/Login.html"><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
                 </li>
             </ul>
         </div>
@@ -70,14 +70,14 @@
         <main>
             <div class="center">
                 <h1>Create</h1>
-                <form method="POST" action="{{ url('/store') }}">
+                <form method="POST" action="{{ url('/storesto') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="txt_field">
                         <input id="name" type="name"
                             class="input form-control @error('name') is-invalid @enderror" name="name"
                             value="{{ old('name') }}" required autocomplete="name">
                         <span></span>
-                        <label>Province</label>
+                        <label>Stories Name</label>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -89,15 +89,43 @@
                             class="input form-control @error('city') is-invalid @enderror" name="city"
                             value="{{ old('city') }}" required autocomplete="city">
                         <span></span>
-                        <label>city</label>
+                        <label>City</label>
                         @error('city')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
+                    <div class="txt_field">
+                        <input id="konten" type="konten"
+                            class="input form-control @error('konten') is-invalid @enderror" name="konten"
+                            value="{{ old('konten') }}" required autocomplete="konten">
+                        <span></span>
+                        <label>Tell Your Story</label>
+                        @error('konten')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    {{-- input gambar --}}
+                    <div class="file">
+                        <input id="img" type="file"
+                            class="input form-control @error('img') is-invalid @enderror" name="img"
+                            value="{{ old('img') }}" required autocomplete="img">
+                        <span></span>
+                        {{-- <label>Tell Your Story</label> --}}
+                        @error('img')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+
                     <div class="loginn">
-                        <a href="/dashDes">
+                        <a href="/dashSto">
                             <button type="submit" class="btn btn-primary" value="Save">
                                 {{ __('Add') }}
                             </button>
