@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class RegController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class RegController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.dashboardc');
     }
 
     /**
@@ -23,21 +22,9 @@ class RegController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $data)
+    public function create()
     {
-        // dd($data);
-        User::create([
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
-            'email' => $data['email'],
-            'gender' => $data['gender'],
-            'notelp' => $data['notelp'],
-            'password' => Hash::make($data['password']),
-        ]);
-
-        // dd($user);
-
-        return redirect('/login');
+        //
     }
 
     /**
@@ -54,10 +41,10 @@ class RegController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Customer $customer)
     {
         //
     }
@@ -65,10 +52,10 @@ class RegController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Customer $customer)
     {
         //
     }
@@ -77,10 +64,10 @@ class RegController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Customer $customer)
     {
         //
     }
@@ -88,10 +75,10 @@ class RegController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Customer $customer)
     {
         //
     }

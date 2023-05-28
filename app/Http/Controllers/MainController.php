@@ -14,12 +14,6 @@ class MainController extends Controller
         ]);
     }
 
-    public function reg(){
-        return view('auth.register');
-    }
-    public function log(){
-        return view('auth.login');
-    }
 
     public function stories(){
         return view('stories', [

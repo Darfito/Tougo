@@ -46,30 +46,32 @@
             <div class="field">
                 <span></span>
                 <label for="gender">{{ __('Gender') }}</label>
-                <select name="gender" id="gender" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
+                <div class="select">
+                    <select name="gender" id="gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
 
                 @error('gender')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
-                    @enderror
-                </div>
-                
-                <div class="field">
-                    <span></span>
-                    <label for="notelp">{{ __('No Telpon') }}</label>
-                    <input id="notelp" type="text" class="input form-control @error('notelp') is-invalid @enderror"
-                        name="notelp" value="{{ old('email') }}" required autocomplete="notelp">
-    
-                    @error('notelp')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @enderror
+            </div>
+
+            <div class="field">
+                <span></span>
+                <label for="notelp">{{ __('No Telpon') }}</label>
+                <input id="notelp" type="text" class="input form-control @error('notelp') is-invalid @enderror"
+                    name="notelp" value="{{ old('email') }}" required autocomplete="notelp">
+
+                @error('notelp')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
             <div class="field">
                 <span></span>
@@ -83,8 +85,8 @@
                     </span>
                 @enderror
             </div>
-            
-            
+
+
 
             <div class="field">
                 <span></span>

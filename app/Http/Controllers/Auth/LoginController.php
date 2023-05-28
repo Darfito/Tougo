@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth; 
+use Illuminate\Http\Request; // Import from the correct namespace
 
 class LoginController extends Controller
 {
@@ -18,6 +20,25 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    public function index(){
+        return view('auth.login');
+    }
+    public function authenticate(Request $request){
+       $credentials = $request->validate([
+            'email' => 'required|email:dns',
+            'password' => 'required'
+        ]);
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+        if (Auth::user()->isAdmin) {
+                return redirect()->intended('/dash');
+        }
+        else{
+                return redirect()->intended('/stories');
+        }
+        }
+        return back()->with('loginError', 'Login failed');
+    }
 
     use AuthenticatesUsers;
 
@@ -33,8 +54,17 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+//     public function __construct()
+//     {
+//         $this->middleware('guest')->except('logout');
+//     }
+
+    public function logout(Request $request)
     {
-        $this->middleware('guest')->except('logout');
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+       return redirect('/login');
     }
 }

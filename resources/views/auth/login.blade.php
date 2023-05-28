@@ -16,7 +16,7 @@
             @csrf
             <div class="txt_field">
                 <input id="email" type="email" class="input form-control @error('email') is-invalid @enderror"
-                    name="email" value="{{ old('email') }}" required autocomplete="email">
+                    name="email" value="{{ old('email') }}" autofocus required autocomplete="email">
                 <span></span>
                 <label>Email</label>
                 @error('email')

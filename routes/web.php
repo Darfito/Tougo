@@ -2,11 +2,14 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\StoriesController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CustomerController;
+
+// use App\Http\Controllers\RegController;
 
 
 /*
@@ -26,9 +29,13 @@ use App\Http\Controllers\DestinationController;
 
 Route::get('/', [MainController::class, 'landing']);
 // login and register route
-Route::get('/register', [MainController::class, 'reg']);
-Route::post('/register', [RegController::class, 'create']);
-Route::get('/login',    [MainController::class, 'log']);
+// Route::get('/register', [RegController::class, 'index']);
+// Route::post('/register', [RegController::class, 'create']);
+Route::post('/register', [RegisterController::class, 'create']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/logout',    [LoginController::class, 'logout']);
+Route::get('/login',    [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login',    [LoginController::class, 'authenticate']);
 // about us, stories, and destination route
 Route::get('/stories', [MainController::class, 'stories']);
 Route::get('/destination', [MainController::class, 'destination']);
@@ -38,10 +45,12 @@ Route::get('/aboutus', [MainController::class, 'aboutus']);
 Route::get('/profile', [MainController::class, 'profile']);
 
 // admin route
-Route::get('/dash',    [MainController::class, 'dashboard']);
-Route::get('/dashCus', [MainController::class, 'customer']);
-Route::get('/dashSto', [StoriesController::class, 'index']);
-Route::get('/dashDes', [DestinationController::class, 'index']);
+// Route::middleware('admin')->group(function(){
+// });
+Route::get('/dash',    [MainController::class, 'dashboard'])->middleware('admin');
+Route::get('/dashCus', [CustomerController::class, 'index'])->middleware('admin');
+Route::get('/dashSto', [StoriesController::class, 'index'])->middleware('admin');
+Route::get('/dashDes', [DestinationController::class, 'index'])->middleware('admin');
 
 // edit create nya destination
 Route::get('/dashCreate', function () {

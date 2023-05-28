@@ -23,8 +23,13 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    // use RegistersUsers;
 
+    // view function
+    public function index()
+    {
+        return view('auth.register');
+    }
     /**
      * Where to redirect users after registration.
      *
@@ -46,15 +51,17 @@ class RegisterController extends Controller
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
+     * @param  array  $data
+     * @return \Illuminate\Http\Response
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'notelp' => ['required', 'char', 'notelp', 'max:16',],
+            'firstname' => ['required', 'string','min:3', 'max:255'],
+            'lastname' => ['required', 'string', 'min:3', 'max:255'],
+            'email' => ['required', 'string', 'email', 'min:3', 'max:255', 'unique:users'],
+            'notelp' => ['required', 'string', 'min:3', 'max:16'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,19 +71,23 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return \App\Models\User
+     * @return \Illuminate\Http\Response
      */
-    public function create(Request $data)
+    public function create(Request $request)
     {
-        $user = User::create([
+        $data = $request->all();
+
+        $this->validator($data)->validate();
+        User::create([
             'firstname' => $data['firstname'],
-            'lastname' => $data['name'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
             'gender' => $data['gender'],
             'notelp' => $data['notelp'],
             'password' => Hash::make($data['password']),
         ]);
 
-        dd($user);
+        //dd($user);
 
         return redirect('/login');
     }
