@@ -73,17 +73,37 @@
                     @csrf
                     @method('PUT')
                     <div class="txt_field">
-                        <input id="name" type="name" class="input form-control" name="name"
-                            value="{{ $data->name }}" required autocomplete="name">
+                        <input id="province" type="province"
+                            class="input form-control @error('province') is-invalid @enderror" name="province"
+                            value="{{ $data->province }}" required autocomplete="province">
                         <span></span>
                         <label>Province</label>
+                        @error('province')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                    <div class="txt_field">
-                        <input id="city" type="city" class="input form-control " name="city"
-                            value="{{ $data->city }}" required autocomplete="city">
-                        <span></span>
-                        <label>city</label>
-                    </div>
+
+                     {{-- input gambar --}}
+                    <label for="images" class="drop-container">
+                        <div class="file">
+                            <span class="drop-title">
+                                Drop Files here
+                            </span>
+                            or
+                            <input id="img" type="file"
+                                class="input form-control @error('img') is-invalid @enderror" name="img"
+                                value="{{ old('img') }}" required autocomplete="img">
+                            <span></span>
+                            @error('img')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </label>
+                    
                     <div class="loginn">
                         <button type="submit" class="btn btn-primary" value="Save">
                             Edit

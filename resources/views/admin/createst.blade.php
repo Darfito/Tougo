@@ -13,7 +13,7 @@
 </head>
 
 <body>
-   
+
     <div class="sidebar">
         <div class="sidebar--brand">
             <h1><span class="judul jud-tougo"></span><span>TOUGO</span></h1>
@@ -22,19 +22,19 @@
         <div class="sidebar--menu">
             <ul>
                 <li>
-                    <a href="../../Konten/Dashboard/dashboard.html"><span
+                    <a href="/dash"><span
                             class="las la-igloo"></span><span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="../../Konten/Dashboard/dashboardc.html"><span
+                    <a href="/dashCus"><span
                             class="las la-users"></span><span>Customers</span></a>
                 </li>
                 <li>
-                    <a href="../../Konten/Dashboard/dashboardd.html" ><span
+                    <a href="/dashDes"><span
                             class="las la-map-marker-alt"></span><span>Destination</span></a>
                 </li>
                 <li>
-                    <a href="../../Konten/Dashboard/dashboard_st.html" class="active"><span
+                    <a href="/dashSto" class="active"><span
                             class="las la-book"></span><span>Stories</span></a>
                 </li>
                 <li>
@@ -84,6 +84,16 @@
                             </span>
                         @enderror
                     </div>
+
+                    <div class="txt_field">
+                        <select class="form_control" name="destination_id" id="destination_id">
+                            <option selected="true" disabled="disabled" >Select Province</option>
+                            @foreach ($data as $item)
+                            <option value='{{ $item->id }}'>{{ $item->province }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="txt_field">
                         <input id="city" type="city"
                             class="input form-control @error('city') is-invalid @enderror" name="city"
@@ -110,18 +120,23 @@
                     </div>
 
                     {{-- input gambar --}}
-                    <div class="file">
-                        <input id="img" type="file"
-                            class="input form-control @error('img') is-invalid @enderror" name="img"
-                            value="{{ old('img') }}" required autocomplete="img">
-                        <span></span>
-                        {{-- <label>Tell Your Story</label> --}}
-                        @error('img')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                    <label for="images" class="drop-container">
+                        <div class="file">
+                            <span class="drop-title">
+                                Drop Files here
                             </span>
-                        @enderror
-                    </div>
+                            or
+                            <input id="img" type="file"
+                                class="input form-control @error('img') is-invalid @enderror" name="img"
+                                value="{{ old('img') }}" required autocomplete="img">
+                            <span></span>
+                            @error('img')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </label>
 
 
                     <div class="loginn">

@@ -21,10 +21,10 @@
 
         <div class="sidebar--menu">
             <ul>
-                <li>
+                {{-- <li>
                     <a href="/dash"><span
                             class="las la-igloo"></span><span>Dashboard</span></a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="/dashCus"><span
                             class="las la-users"></span><span>Customers</span></a>
@@ -105,7 +105,7 @@
                             <h3>Destination Table</h3>
                             <div class="cardd-button">
                                 <button>
-                                    <a href="/dashCreate">
+                                    <a href="/create">
                                         <span class="las la-plus">
 
                                         </span>
@@ -123,8 +123,8 @@
                                     <thead>
                                         <tr>
                                             <td>ID Destination</td>
-                                            <td>Destination Name</td>
-                                            <td>City Name</td>
+                                            <td>Image</td>
+                                            <td>Province</td>
                                             <td>Action</td>
                                         </tr>
                                     </thead>
@@ -132,10 +132,8 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td>{{ $item-> id }}</td>
-                                                <td>{{ $item-> name }}</td>
-                                                <td>
-                                                    {{ $item-> city }}
-                                                </td>
+                                                <td>{{ $item->img }}</td>
+                                                <td>{{ $item-> province }}</td>
                                                 <td>
                                                     <div class="action-icon">
                                                         <a href="/edit/{{ $item->id }}">

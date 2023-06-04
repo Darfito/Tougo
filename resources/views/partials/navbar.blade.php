@@ -26,12 +26,12 @@
                             src="asset/img/evening-sky.jpg", style="border-radius: 50%;", width="43px">
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                      <li><a class="dropdown-item d-flex flex-row" href="/profile">Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
                         <li>
                           <form action="/logout" method="POST">
                             @csrf
-                            <button type="submit" class="dropdown-item">Log Out</button>
+                            <button type="submit" class="dropdown-item d-flex flex-row">Log Out</button>
                           </form>
                         </li>
                     </ul>

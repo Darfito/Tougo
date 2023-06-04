@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -14,7 +15,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboardc');
+        $data = User::all();
+        return view('admin.dashboardc', ['data'=> $data]);
     }
 
     /**
@@ -44,10 +46,10 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
-    {
-        //
-    }
+    // public function show(Customer $customer)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.

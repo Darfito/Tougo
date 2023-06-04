@@ -181,6 +181,11 @@ main {
   background: #fff;
   border-radius: 5px;
 }
+
+.cardd .la-plus{
+  color: #fff;
+  border-radius: 5px;
+}
 .cardd .cardd-header {
   padding: 1rem;
 }

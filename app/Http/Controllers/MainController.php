@@ -7,13 +7,10 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function landing()
+    public function __construct()
     {
-        return view('landing', [
-            "title" => "Welcome!"
-        ]);
+        $this->middleware('auth')->except('logout');
     }
-
 
     public function stories(){
         return view('stories', [
@@ -22,7 +19,9 @@ class MainController extends Controller
     }
 
     public function destination(){
+        $data = destination::all();
         return view('destination', [
+            'data' => $data ,
             "title" => "destination"
         ]);
     }
@@ -31,9 +30,6 @@ class MainController extends Controller
         return view('aboutus', [
             "title" => "about us"
         ]);
-    }
-    public function profile(){
-        return view('account.profile');
     }
     public function dashboard(){
         return view('admin.dashboard');

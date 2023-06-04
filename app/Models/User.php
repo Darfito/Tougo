@@ -18,12 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'img',
         'firstname',
         'lastname',
         'isAdmin',
         'email',
         'notelp',
         'password',
+        'gender',
     ];
 
     /**
@@ -44,4 +46,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function save(array $options = [])
+    {
+        // Perform additional operations before saving the user
+
+        return parent::save($options);
+    }
 }

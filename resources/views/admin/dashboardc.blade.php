@@ -24,11 +24,11 @@
 
       <div class="sidebar--menu">
         <ul>
-          <li>
+          {{-- <li>
             <a href="/dash"
               ><span class="las la-igloo"></span><span>Dashboard</span></a
             >
-          </li>
+          </li> --}}
           <li>
             <a href="/dashCus" class="active"
               ><span class="las la-users"></span><span>Customers</span></a
@@ -45,10 +45,22 @@
               ><span class="las la-book"></span><span>Stories</span></a
             >
           </li>
+          
           <li>
-            <a href="/login"
-              ><span class="las la-sign-out-alt"></span><span>Sign Out</span></a
+            <a href="/dashSto"
+              ><span class="las la-home"></span><span>Go Back to Content</span></a
             >
+          </li>
+          {{-- <li>
+            <a href="/login"
+            ><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
+          </li> --}}
+
+
+          <li class="signout">
+            <form action="/logout" method="POST">
+            @csrf
+              <button  type="submit" class="las la-sign-out-alt"><span>Sign Out</span></button></form>
           </li>
         </ul>
       </div>
@@ -120,9 +132,6 @@
                 <h3>Customers Table</h3>
                 <div class="cardd-button">
                   <button>
-                    <span class="las la-plus"></span>
-                  </button>
-                  <button>
                     See all <span class="las la-arrow-right"></span>
                   </button>
                 </div>
@@ -139,53 +148,29 @@
                         <td>Gender</td>
                         <td>Email</td>
                         <td>Phone No</td>
-                        <td>Action</td>
+                        <td>Image</td>
+                        {{-- <td>Action</td> --}}
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach( $data as $item)
                       <tr>
-                        <td>001</td>
-                        <td>Noah</td>
-                        <td>Bahtera</td>
-                        <td>Male</td>
-                        <td>xxxx@email.con</td>
-                        <td>14045</td>
-                        <td>
-                          <div class="action-icon">
-                            <span class="las la-edit"></span>
-                            <span class="las la-trash"></span>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>002</td>
-                        <td>Tim</td>
-                        <td>Balland</td>
-                        <td>Male</td>
-                        <td>xxxx@email.con</td>
-                        <td>500505</td>
-                        <td>
-                          <div class="action-icon">
-                            <span class="las la-edit"></span>
-                            <span class="las la-trash"></span>
-                          </div>
-                        </td>
-                      </tr>
 
-                      <tr>
-                        <td>001</td>
-                        <td>Taylor</td>
-                        <td>Swift</td>
-                        <td>Female</td>
-                        <td>xxxx@email.con</td>
-                        <td>045654</td>
-                        <td>
+                        <td>{{  $item->id }}</td>
+                        <td>{{  $item->firstname }}</td>
+                        <td>{{  $item->lastname }}</td>
+                        <td>{{  $item->gender }}</td>
+                        <td>{{  $item->email }}</td>
+                        <td>{{  $item->notelp }}</td>
+                        <td>{{  $item->img }}</td>
+                        {{-- <td>
                           <div class="action-icon">
                             <span class="las la-edit"></span>
                             <span class="las la-trash"></span>
                           </div>
-                        </td>
+                        </td> --}}
                       </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

@@ -70,32 +70,40 @@
         <main>
             <div class="center">
                 <h1>Create</h1>
-                <form method="POST" action="{{ url('/store') }}">
+                <form method="POST" action="{{ url('/store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="txt_field">
-                        <input id="name" type="name"
-                            class="input form-control @error('name') is-invalid @enderror" name="name"
-                            value="{{ old('name') }}" required autocomplete="name">
+                        <input id="province" type="province"
+                            class="input form-control @error('province') is-invalid @enderror" name="province"
+                            value="{{ old('province') }}" required autocomplete="province">
                         <span></span>
                         <label>Province</label>
-                        @error('name')
+                        @error('province')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
-                    <div class="txt_field">
-                        <input id="city" type="city"
-                            class="input form-control @error('city') is-invalid @enderror" name="city"
-                            value="{{ old('city') }}" required autocomplete="city">
-                        <span></span>
-                        <label>city</label>
-                        @error('city')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+
+                    {{-- input gambar --}}
+                    <label for="images" class="drop-container">
+                        <div class="file">
+                            <span class="drop-title">
+                                Drop Files here
                             </span>
-                        @enderror
-                    </div>
+                            or
+                            <input id="img" type="file"
+                                class="input form-control @error('img') is-invalid @enderror" name="img"
+                                value="{{ old('img') }}" required autocomplete="img">
+                            <span></span>
+                            @error('img')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </label>
+                   
                     <div class="loginn">
                         <a href="/dashDes">
                             <button type="submit" class="btn btn-primary" value="Save">

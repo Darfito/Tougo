@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/admin/dash.css">
+    <link rel="stylesheet" href="css/logout.css">
     <link
       rel="stylesheet"
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
@@ -46,9 +47,14 @@
             >
           </li>
           <li>
-            <a href="/login" 
-              ><span class="las la-sign-out-alt"></span><span>Sign Out</span></a
+            <a href="/dashSto"
+              ><span class="las la-home"></span><span>Go Back to Content</span></a
             >
+          </li>
+          <li>
+            <form action="/logout" method="POST">
+            @csrf
+              <button  type="submit" class="las la-sign-out-alt"><span>Sign Out</span></button></form>
           </li>
         </ul>
       </div>
@@ -69,12 +75,9 @@
         </div>
 
         <div class="user-wrapper">
-          <img
-            src="../../Assets/Icons/evening-sky.jpg"
-            width="40px"
-            height="40px"
-            alt=""
-          />
+          <a class="nav-link dropdown-toggle" style="color: whitesmoke;" href="/profile" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img
+                            src="asset/img/evening-sky.jpg", style="border-radius: 50%;", width="43px">
+          </a>
           <div>
             <h4>John Doe</h4>
             <small>Admin</small>

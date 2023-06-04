@@ -23,9 +23,9 @@ class DestinationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(array $data)
+    public function create()
     {
-          return view('createview');
+        return view('admin.createdes');
     }
 
     /**
@@ -37,9 +37,14 @@ class DestinationController extends Controller
     public function store(Request $request)
     {
         $data = new destination();
-        $data->name = $request->input('name');
-        $data->city = $request->input('city');
-        $data->save();
+        $data->province = $request->input('province');
+        if ($request->hasFile('img')) {
+            $request->file('img')->move('storage/img_destination', $request->file('img')->getClientOriginalName());
+            $data->img = $request->file('img')->getClientOriginalName();
+            $data->save();
+            // return redirect('/dashSto')->with('success', 'Record saved successfully.');
+        };
+// dd($data);
         return redirect('/dashDes')->with('success', 'Record saved successfully.');
     }
 
@@ -77,8 +82,7 @@ class DestinationController extends Controller
     public function update(Request $request, $id)
     {
        $data = destination::find($id);
-        $data->name = $request->input('name');
-        $data->city = $request->input('city');
+        $data->province = $request->input('province');
         $data->save();
         return redirect('/dashDes')->with('success', 'Record updated successfully.');
     }

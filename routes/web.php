@@ -8,6 +8,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\ProfileController;
 
 // use App\Http\Controllers\RegController;
 
@@ -27,14 +29,17 @@ use App\Http\Controllers\CustomerController;
 //     return view('welcome');
 // });
 
-Route::get('/', [MainController::class, 'landing']);
+Route::get('/', [LandingController::class, 'index']);
 // login and register route
 // Route::get('/register', [RegController::class, 'index']);
 // Route::post('/register', [RegController::class, 'create']);
+
 Route::post('/register', [RegisterController::class, 'create']);
 Route::get('/register', [RegisterController::class, 'index']);
+
 Route::post('/logout',    [LoginController::class, 'logout']);
 Route::get('/login',    [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login',    [LoginController::class, 'index'])->name('login');
 Route::post('/login',    [LoginController::class, 'authenticate']);
 // about us, stories, and destination route
 Route::get('/stories', [MainController::class, 'stories']);
@@ -42,28 +47,33 @@ Route::get('/destination', [MainController::class, 'destination']);
 Route::get('/aboutus', [MainController::class, 'aboutus']);
 
 // profile
-Route::get('/profile', [MainController::class, 'profile']);
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+// Update proflie record
+Route::put('/update-prof/{id}', [ProfileController::class, 'update'])->name('profile.update');
+
+
 
 // admin route
 // Route::middleware('admin')->group(function(){
 // });
-Route::get('/dash',    [MainController::class, 'dashboard'])->middleware('admin');
+// Route::get('/dash',    [MainController::class, 'dashboard'])->middleware('admin');
 Route::get('/dashCus', [CustomerController::class, 'index'])->middleware('admin');
 Route::get('/dashSto', [StoriesController::class, 'index'])->middleware('admin');
 Route::get('/dashDes', [DestinationController::class, 'index'])->middleware('admin');
 
 // edit create nya destination
-Route::get('/dashCreate', function () {
-    return view('admin.createdes');
-});
-Route::get('/dashEdit', function () {
-    return view('admin.editdes');
-});
+// Route::get('/dashCreate', function () {
+//     return view('admin.createdes');
+// });
+// Route::get('/dashEdit', function () {
+//     return view('admin.editdes');
+// });
 
 // edit create nya stories
-Route::get('/dashCreateSt', function () {
-    return view('admin.createst');
-});
+// Route::get('/dashCreateSt', function () {
+//     return view('admin.createst');
+// });
 Route::get('/dashEditSt', function () {
     return view('admin.editst');
 });
@@ -117,3 +127,5 @@ Route::put('/updatesto/{id}', [StoriesController::class, 'update']);
 
 // Delete an existing record
 Route::delete('/deletesto/{id}', [StoriesController::class, 'destroy']);
+
+

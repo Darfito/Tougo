@@ -49,11 +49,6 @@
                     </button>
                 </a>
             </div>
-            {{-- <div class="logg">
-                <a href="../Konten/Profile.html">
-                    <input type="submit" value="Login with Google" />
-                </a>
-            </div> --}}
             <div class="signup_link">
                 Not a member? <a href="{{ url('register') }}">Signup</a>
             </div>

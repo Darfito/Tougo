@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\destination;
 use App\Models\Stories;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class StoriesController extends Controller
     public function index()
     {
         $data = Stories::all();
-        return view('admin.dashboardst',['data' => $data]);
+        return view('admin.dashboardst', ['data' => $data]);
     }
 
     /**
@@ -23,9 +24,11 @@ class StoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(array $data)
+    public function create()
     {
-        return view('createview');
+        $data = destination::all();
+        // dd($data);
+        return view('admin.createst', ['data' => $data]);
     }
 
     /**
@@ -39,7 +42,7 @@ class StoriesController extends Controller
     {
         $data = Stories::create($request->all());
         if ($request->hasFile('img')) {
-            $request->file('img')->move('/img_store', $request->file('img')->getClientOriginalName());
+            $request->file('img')->move('storage/img_stories', $request->file('img')->getClientOriginalName());
             $data->img = $request->file('img')->getClientOriginalName();
             $data->save();
         };
@@ -58,8 +61,9 @@ class StoriesController extends Controller
 
     public function edit($id)
     {
+        $destination = destination::all();
         $data = Stories::find($id);
-        return view('admin.editst', ['data' => $data]);
+        return view('admin.editst', ['data' => $data, 'destinations' => $destination]);
     }
 
     /**
@@ -71,12 +75,28 @@ class StoriesController extends Controller
      */
 
     public function update(Request $request, $id)
-    {
-        $data = Stories::find($id);
-        $data->name = $request->input('name');
-        $data->city = $request->input('city');
-        $data->konten = $request->input('content');
-        $data->konten = $request->input('img');
+    { 
+    $data = Stories::find($id);
+    $data->name = $request->input('name');
+    $data->city = $request->input('city');
+    $data->konten = $request->input('konten');
+    $data->destination_id = $request->input('destination_id');
+    
+    if ($request->hasFile('img')) {
+        // Remove the existing image file
+        $oldImagePath = public_path('img_store/' . $data->img);
+        if (file_exists($oldImagePath)) {
+            unlink($oldImagePath);
+        }
+        
+        // Store the new image file
+        $image = $request->file('img');
+        $imageName = $image->getClientOriginalName();
+        $image->move(public_path('img_store'), $imageName);
+        $data->img = $imageName;
+    }
+    
+    // dd($data);
         $data->save();
         return redirect('/dashSto')->with('success', 'Record updated successfully.');
     }

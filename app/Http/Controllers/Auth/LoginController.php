@@ -31,7 +31,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
         if (Auth::user()->isAdmin) {
-                return redirect()->intended('/dash');
+                return redirect()->intended('/dashSto');
         }
         else{
                 return redirect()->intended('/stories');
@@ -58,6 +58,8 @@ class LoginController extends Controller
 //     {
 //         $this->middleware('guest')->except('logout');
 //     }
+
+
 
     public function logout(Request $request)
     {

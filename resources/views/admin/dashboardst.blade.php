@@ -22,10 +22,10 @@
 
         <div class="sidebar--menu">
             <ul>
-                <li>
+                {{-- <li>
                     <a href="/dash"><span
                             class="las la-igloo"></span><span>Dashboard</span></a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="/dashCus"><span
                             class="las la-users"></span><span>Customers</span></a>
@@ -106,7 +106,7 @@
                             <h3>Stories Table</h3>
                             <div class="cardd-button">
                                 <button>
-                                    <a href="/dashCreateSt">
+                                    <a href="/createsto">
                                         <span class="las la-plus"></span>
                                     </a>
                                 </button>
@@ -123,6 +123,7 @@
                                         <tr>
                                             <td>ID Stories</td>
                                             <td>Stories Name</td>
+                                            <td>Province</td>
                                             <td>Date</td>
                                             <td>City</td>
                                             <td>img</td>
@@ -135,13 +136,14 @@
                                             <tr>
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->name }}</td>
+                                                <td>{{ $item->destination->province }}</td>
                                                 <td>{{ $item->updated_at }}</td>
                                                 <td>{{ $item->city }}</td>
                                                 <td>{{ $item->img }}</td>
                                                 <td>{{ $item->konten }}</td>
                                                 <td>
                                                     <div class="action-icon">
-                                                        <a href="/edit/{{ $item->id }}">
+                                                        <a href="/editsto/{{ $item->id }}">
                                                             <span class="las la-edit"></span>
                                                         </a>
                                                         <form action="/delete/{{ $item->id }}" method="post">

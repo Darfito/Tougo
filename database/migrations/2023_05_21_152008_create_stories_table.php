@@ -20,6 +20,8 @@ class CreateStoriesTable extends Migration
             $table->String('city');
             $table->text('konten');
             $table->String('img');
+            $table->unsignedBigInteger('destination_id');
+            $table->foreign('destination_id')->references('id')->on('destinations')->cascadeonDelete();
         });
     }
 
