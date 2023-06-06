@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Stories;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class User extends Authenticatable
 {
@@ -52,5 +55,10 @@ class User extends Authenticatable
         // Perform additional operations before saving the user
 
         return parent::save($options);
+    }
+
+    public function stories(): HasMany
+    {
+        return $this->hasMany(Stories::class);
     }
 }

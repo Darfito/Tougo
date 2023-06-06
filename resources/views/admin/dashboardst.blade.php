@@ -27,20 +27,26 @@
                             class="las la-igloo"></span><span>Dashboard</span></a>
                 </li> --}}
                 <li>
-                    <a href="/dashCus"><span
-                            class="las la-users"></span><span>Customers</span></a>
+                    <a href="/dashCus"><span class="las la-users"></span><span>Customers</span></a>
                 </li>
                 <li>
-                    <a href="/dashDes"><span
-                            class="las la-map-marker-alt"></span><span>Destination</span></a>
+                    <a href="/dashDes"><span class="las la-map-marker-alt"></span><span>Destination</span></a>
                 </li>
                 <li>
-                    <a href="/dashSto" class="active"><span
-                            class="las la-book"></span><span>Stories</span></a>
+                    <a href="/dashSto" class="active"><span class="las la-book"></span><span>Stories</span></a>
                 </li>
+
                 <li>
-                    <a href="/login"><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
+                    <a href="/stories"><span class="las la-home"></span><span>Go Back to Content</span></a>
                 </li>
+
+                <li class="signout">
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="las la-sign-out-alt"><span>Sign Out</span></button>
+                    </form>
+                </li>
+
             </ul>
         </div>
     </div>

@@ -45,23 +45,22 @@
               ><span class="las la-book"></span><span>Stories</span></a
             >
           </li>
-          
+
           <li>
             <a href="/dashSto"
               ><span class="las la-home"></span><span>Go Back to Content</span></a
             >
           </li>
-          {{-- <li>
-            <a href="/login"
-            ><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
-          </li> --}}
-
-
+          
           <li class="signout">
             <form action="/logout" method="POST">
-            @csrf
+              @csrf
               <button  type="submit" class="las la-sign-out-alt"><span>Sign Out</span></button></form>
-          </li>
+            </li>
+            {{-- <li>
+              <a href="/login"
+              ><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
+            </li> --}}
         </ul>
       </div>
     </div>

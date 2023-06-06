@@ -26,19 +26,25 @@
                             class="las la-igloo"></span><span>Dashboard</span></a>
                 </li> --}}
                 <li>
-                    <a href="/dashCus"><span
-                            class="las la-users"></span><span>Customers</span></a>
+                    <a href="/dashCus"><span class="las la-users"></span><span>Customers</span></a>
                 </li>
                 <li>
                     <a href="/dashDes" class="active"><span
                             class="las la-map-marker-alt"></span><span>Destination</span></a>
                 </li>
                 <li>
-                    <a href="/dashSto"><span
-                            class="las la-book"></span><span>Stories</span></a>
+                    <a href="/dashSto"><span class="las la-book"></span><span>Stories</span></a>
                 </li>
+
                 <li>
-                    <a href="/login"><span class="las la-sign-out-alt"></span><span>Sign Out</span></a>
+                    <a href="/stories"><span class="las la-home"></span><span>Go Back to Content</span></a>
+                </li>
+
+                <li class="signout">
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="las la-sign-out-alt"><span>Sign Out</span></button>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -107,7 +113,6 @@
                                 <button>
                                     <a href="/create">
                                         <span class="las la-plus">
-
                                         </span>
                                     </a>
                                 </button>
@@ -131,9 +136,9 @@
                                     <tbody>
                                         @foreach ($data as $item)
                                             <tr>
-                                                <td>{{ $item-> id }}</td>
+                                                <td>{{ $item->id }}</td>
                                                 <td>{{ $item->img }}</td>
-                                                <td>{{ $item-> province }}</td>
+                                                <td>{{ $item->province }}</td>
                                                 <td>
                                                     <div class="action-icon">
                                                         <a href="/edit/{{ $item->id }}">

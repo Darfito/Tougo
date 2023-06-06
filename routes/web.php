@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TellController;
 
 // use App\Http\Controllers\RegController;
 
@@ -41,14 +42,22 @@ Route::post('/logout',    [LoginController::class, 'logout']);
 Route::get('/login',    [LoginController::class, 'index'])->middleware('guest');
 Route::get('/login',    [LoginController::class, 'index'])->name('login');
 Route::post('/login',    [LoginController::class, 'authenticate']);
-// about us, stories, and destination route
-Route::get('/stories', [MainController::class, 'stories']);
-Route::get('/destination', [MainController::class, 'destination']);
+
+// about us route
 Route::get('/aboutus', [MainController::class, 'aboutus']);
+// Destination and Stories route
+
+Route::get('/stories', [MainController::class, 'stories']);
+Route::get('/stories/{id}', [TellController::class, 'showtell']);
+Route::get('/destination', [MainController::class, 'destination']);
+
 
 // profile
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::get('/profile/create-story', [ProfileController::class, 'tellstory']);
+Route::post('/profile/store-story', [ProfileController::class, 'storest']);
+
 // Update proflie record
 Route::put('/update-prof/{id}', [ProfileController::class, 'update'])->name('profile.update');
 
@@ -58,7 +67,7 @@ Route::put('/update-prof/{id}', [ProfileController::class, 'update'])->name('pro
 // Route::middleware('admin')->group(function(){
 // });
 // Route::get('/dash',    [MainController::class, 'dashboard'])->middleware('admin');
-Route::get('/dashCus', [CustomerController::class, 'index'])->middleware('admin');
+// Route::get('/dashCus', [CustomerController::class, 'index'])->middleware('admin');
 Route::get('/dashSto', [StoriesController::class, 'index'])->middleware('admin');
 Route::get('/dashDes', [DestinationController::class, 'index'])->middleware('admin');
 

@@ -22,6 +22,8 @@ class CreateStoriesTable extends Migration
             $table->String('img');
             $table->unsignedBigInteger('destination_id');
             $table->foreign('destination_id')->references('id')->on('destinations')->cascadeonDelete();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeonDelete();
         });
     }
 

@@ -95,6 +95,8 @@
   padding-right: 1rem;
 }
 
+/* for sign up */
+
 #nav-toggle:checked ~ .main-content {
   margin-left: 70px;
 }

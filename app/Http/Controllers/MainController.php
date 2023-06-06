@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\destination;
+use App\Models\Stories;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -13,7 +14,9 @@ class MainController extends Controller
     }
 
     public function stories(){
+        $data = Stories::all();
         return view('stories', [
+            'data' => $data,
             "title" => "stories"
         ]);
     }

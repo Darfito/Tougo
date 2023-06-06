@@ -16,11 +16,17 @@ class Stories extends Model
         'city',
         'konten',
         'img',
-        'destination_id'
+        'destination_id',
+        'user_id',
     ];
 
     public function destination():BelongsTo 
     {
         return $this->belongsTo(destination::class);
+    }
+
+    public function user():BelongsTo 
+    {
+        return $this->belongsTo(User::class);
     }
 }

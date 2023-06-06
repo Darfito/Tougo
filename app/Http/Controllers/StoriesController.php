@@ -114,4 +114,6 @@ class StoriesController extends Controller
         $data->delete();
         return redirect('/dashSto')->with('success', 'Record deleted successfully.');
     }
+
+    
 }

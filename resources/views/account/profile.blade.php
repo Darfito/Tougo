@@ -6,15 +6,26 @@
     <div class="container">
         <div class="profile">
             <div class="profile-top">
-                <img src="../Assets/Icons/evening-sky.jpg" alt="" />
+                <img src={{ asset('storage/img_profile/' . $user->img) }} alt="" />
             </div>
 
             <div class="profile-user-settings">
-                <h1 class="profile-user-name">@username</h1>
+                <h1 class="profile-user-name">{{ $user->firstname }}</h1>
                 <h2 class="profile-bio">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    {{ $user->email }}
                 </h2>
-                <button class="profile-edit-btn"><a href="/profile/{{ $user -> id }}/edit">Edit Profile</a> </button>
+                <button class="profile-edit-btn"><a href="/profile/{{ $user->id }}/edit">Edit Profile</a> </button>
+            </div>
+
+            <div class="cardd">
+
+                <a href="/profile/create-story">
+                    <button>
+                        <span class="las la-plus">
+                        </span>
+                    </button>
+                </a>
+
             </div>
         </div>
         <div class="line-center">
