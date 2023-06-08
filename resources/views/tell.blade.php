@@ -5,8 +5,8 @@
     <main>
     <div class="container">
       <h1 class="--judul">{{ $data -> name }}</h1>
-      <p class="f-left">City <a href="#">{{ $data -> city }}</a></p>
-      <p class="foto"> <img src="{{ asset('storage/img_stories/' . $data->img) }}" alt="" /> </p>
+      <p class="f-left">{{ $data->destination->province }} | {{ $data -> city }}</p>
+      <p class="foto"> <img src="{{ asset('storage/img_stories/' . $data->img) }}" alt="" width="480px"/> </p>
       <br/>
       <p class="--konten">
         {{ $data -> konten }}

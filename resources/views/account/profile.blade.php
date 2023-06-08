@@ -3,6 +3,8 @@
 @section('container')
     <link rel="stylesheet" href="css/profile/profile.css" />
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
     <div class="container">
         <div class="profile">
             <div class="profile-top">
@@ -10,22 +12,23 @@
             </div>
 
             <div class="profile-user-settings">
-                <h1 class="profile-user-name">{{ $user->firstname }}</h1>
-                <h2 class="profile-bio">
-                    {{ $user->email }}
-                </h2>
-                <button class="profile-edit-btn"><a href="/profile/{{ $user->id }}/edit">Edit Profile</a> </button>
-            </div>
-
-            <div class="cardd">
-
-                <a href="/profile/create-story">
-                    <button>
-                        <span class="las la-plus">
-                        </span>
-                    </button>
-                </a>
-
+                <div class="userbio">
+                    <h1 class="profile-user-name">{{ $user->firstname }}</h1>
+                    <h2 class="profile-bio">
+                        {{ $user->email }}
+                    </h2>
+                </div>
+                <div class="tombol">
+                    <div class="tombol-edit">
+                        <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+                    </div>
+                    <div class="tombol-add">
+                        <a href="/profile/create-story">
+                            <span class="las la-plus">
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="line-center">
@@ -35,44 +38,28 @@
         </div>
 
         <!-- content -->
+
+        @forelse ($data as $item)
         <div class="content">
-            <img src="../Assets/Image/jabar.jpg" />
+            <img src="{{ asset('storage/img_stories/' . $item->img) }}" />
             <div class="content-text">
                 <div class="categories">
-                    <span>History - East Java</span>
+                    <span>{{ $item ->destination ->province }}</span>
                 </div>
                 <div class="title">
-                    <h3>Nama Tempat Wisata</h3>
+                    <h3>{{ $item->name }}</h3>
                 </div>
                 <div class="article">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                        tristique dignissim consectetur. Donec scelerisque sapien non
-                        velit luctus tincidunt. Curabitur a gravida magna. In aliquam elit
-                        at ex maximus euismod.
+                        {{ $item->konten }}
                     </p>
                 </div>
             </div>
         </div>
+        @empty
+        <h1>There is no story between us yet! Tell us your story!</h1>
+        @endforelse
+
     </div>
 
-    <div class="content">
-        <img src="../Assets/Image/jatim.jpg" />
-        <div class="content-text">
-            <div class="categories">
-                <span>History - West Java</span>
-            </div>
-            <div class="title">
-                <h3>Nama Tempat Wisata</h3>
-            </div>
-            <div class="article">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                    tristique dignissim consectetur. Donec scelerisque sapien non
-                    velit luctus tincidunt. Curabitur a gravida magna. In aliquam elit
-                    at ex maximus euismod.
-                </p>
-            </div>
-        </div>
-    </div>
 @endsection

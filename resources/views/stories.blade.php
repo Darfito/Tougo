@@ -19,7 +19,7 @@
                                 <h5 class="card-title">{{ $item->name}}</h5>
                                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ $item->city}}</h6>
                                 {{-- <p class="card-text">{{ $item->konten}}</p> --}}
-                                <a href="/stories/{{ $item->id }}}" class="btn btn-primary">More</a>
+                                <a href="/stories/{{ $item->id }}" class="btn btn-primary">More</a>
                             </div>
                         </div>
                     </div>

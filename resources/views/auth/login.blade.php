@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Login</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="https://img.icons8.com/badges/48/idea.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
 </head>
 

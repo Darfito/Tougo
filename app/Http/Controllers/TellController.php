@@ -12,6 +12,6 @@ class TellController extends Controller
     {
         $destination = destination::all();
         $data = Stories::findOrFail($id);
-        return view('tell', ['data' => $data, 'destinations' => $destination, "title" => "Stories"]);
+        return view('tell', ['data' => $data, "title" => "Stories"]);
     }
 }

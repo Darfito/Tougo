@@ -21,9 +21,10 @@ class ProfileController extends Controller
     public function index()
     {
         $user = auth()->user();
+        $data = $user->stories;
         return view(
             'account.profile',
-            ['user' => $user, "title" => "Profile"]
+            ['user' => $user, "title" => "Profile", 'data' => $data]
         );
     }
     public function edit($id)

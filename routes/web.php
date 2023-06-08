@@ -50,6 +50,7 @@ Route::get('/aboutus', [MainController::class, 'aboutus']);
 Route::get('/stories', [MainController::class, 'stories']);
 Route::get('/stories/{id}', [TellController::class, 'showtell']);
 Route::get('/destination', [MainController::class, 'destination']);
+Route::get('/destination/{id}', [DestinationController::class, 'detail']);
 
 
 // profile
@@ -67,7 +68,7 @@ Route::put('/update-prof/{id}', [ProfileController::class, 'update'])->name('pro
 // Route::middleware('admin')->group(function(){
 // });
 // Route::get('/dash',    [MainController::class, 'dashboard'])->middleware('admin');
-// Route::get('/dashCus', [CustomerController::class, 'index'])->middleware('admin');
+Route::get('/dashCus', [CustomerController::class, 'index'])->middleware('admin');
 Route::get('/dashSto', [StoriesController::class, 'index'])->middleware('admin');
 Route::get('/dashDes', [DestinationController::class, 'index'])->middleware('admin');
 

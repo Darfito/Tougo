@@ -23,7 +23,7 @@
                 </li>
                 <li class="nav-item dropdown me-2 ms-2">
                     <a class="nav-link dropdown-toggle" style="color: whitesmoke;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img
-                            src="asset/img/evening-sky.jpg", style="border-radius: 50%;", width="43px">
+                            src={{ asset('storage/img_profile/' . Auth::user()->img) }} style="border-radius: 50%;", width="43px">
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item d-flex flex-row" href="/profile">Profile</a></li>

@@ -9,7 +9,7 @@
   }
 
   body{
-    overflow-x:hidden ;
+    width: 100vw;
   }
 
 .line-center{
@@ -26,7 +26,7 @@
   }
 
   .container {
-    width: 100vw;
+    width: 100%;
   }
   
   .navbar {
@@ -102,6 +102,18 @@
     border-radius: 50%;
   }
 
+  .profile-user-settings{
+    display: flex;
+        flex-direction: column;
+    align-items: center;
+  } 
+
+  .userbio{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+  }
+
   .profile-user-settings .profile-user-name{
     font-size: 40px;
     margin-left: 32px;
@@ -114,7 +126,37 @@
     padding: 0px 0px 10px 0px;
   }
 
-  .profile-user-settings .profile-edit-btn {
+  .tombol {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-left: 40px;
+  }
+
+  .tombol a{
+    text-decoration: none;
+    color: white;
+    background-color: #354259;
+    border: none;
+    border-color: #354259;
+    border-radius: 10px;
+  }
+
+  .tombol .tombol-edit a{
+    padding: 8px 20px;
+    
+  }
+  .tombol .tombol-add a{
+    padding: 8px;
+  }
+
+  .tombol .tombol-add {
+    margin-left: 0.5rem;
+  }
+
+  /* .profile-user-settings .profile-edit-btn {
     font-size: 16px;
     color: white;
     background-color: #202734;
@@ -128,9 +170,9 @@
 
   .profile-user-settings .profile-edit-btn:hover{
     background-color: slategrey;
-  }
+  } */
 
-.cardd a .la-plus{
+/* .cardd a .la-plus{
   color: #fff;
   border-radius: 5px;
 }
@@ -142,7 +184,7 @@
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   border: 1px solid #354259;
-}
+} */
 
   .line{
     padding-top: 10px;

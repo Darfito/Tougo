@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="css/admin/dash.css">
     <link rel="stylesheet" href="css/logout.css">
+    <link rel="icon" href="https://img.icons8.com/badges/48/idea.png">
     <link
       rel="stylesheet"
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"

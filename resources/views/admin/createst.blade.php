@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://img.icons8.com/badges/48/idea.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
@@ -59,9 +60,14 @@
             </div>
 
             <div class="user-wrapper">
-                <img src="../../Assets/Icons/evening-sky.jpg" width="40px" height="40px" alt="" />
+                <img
+            src={{ asset('storage/img_profile/' . Auth::user()->img) }}
+            width="40px"
+            height="40px"
+            alt=""
+          />
                 <div>
-                    <h4>John Doe</h4>
+                    <h4>{{ Auth::user()->firstname}}</h4>
                     <small>Admin</small>
                 </div>
             </div>

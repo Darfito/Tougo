@@ -9,6 +9,7 @@
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
     <link rel="stylesheet" href="{{ asset('css/admin/createdes.css') }}" />
+    <link rel="icon" href="https://img.icons8.com/badges/48/idea.png">
     <title>Admin</title>
 </head>
 
@@ -58,9 +59,14 @@
             </div>
 
             <div class="user-wrapper">
-                <img src="../../Assets/Icons/evening-sky.jpg" width="40px" height="40px" alt="" />
+                <img
+            src={{ asset('storage/img_profile/' . Auth::user()->img) }}
+            width="40px"
+            height="40px"
+            alt=""
+          />
                 <div>
-                    <h4>John Doe</h4>
+                    <h4>{{ Auth::user()->firstname}}</h4>
                     <small>Admin</small>
                 </div>
             </div>

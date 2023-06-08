@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
     />
+    <link rel="icon" href="https://img.icons8.com/badges/48/idea.png">
     <link
       rel="stylesheet"
       href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
@@ -47,7 +48,7 @@
           </li>
 
           <li>
-            <a href="/dashSto"
+            <a href="/stories"
               ><span class="las la-home"></span><span>Go Back to Content</span></a
             >
           </li>
@@ -81,13 +82,13 @@
 
         <div class="user-wrapper">
           <img
-            src="../../Assets/Icons/evening-sky.jpg"
+            src={{ asset('storage/img_profile/' . Auth::user()->img) }}
             width="40px"
             height="40px"
             alt=""
           />
           <div>
-            <h4>John Doe</h4>
+            <h4>{{ Auth::user()->firstname}}</h4>
             <small>Admin</small>
           </div>
         </div>
@@ -97,8 +98,8 @@
         <div class="card">
           <div class="card-single">
             <div>
-              <h1>54</h1>
-              <span>Customers</span>
+              <h1>{{ \App\Models\User::count() }}</h1>
+              <span>User</span>
             </div>
             <div>
               <span class="las la-users"></span>
@@ -106,7 +107,7 @@
           </div>
           <div class="card-single">
             <div>
-              <h1>54</h1>
+              <h1>{{ \App\Models\destination::count()}}</h1>
               <span>Destination</span>
             </div>
             <div>
@@ -115,7 +116,7 @@
           </div>
           <div class="card-single">
             <div>
-              <h1>54</h1>
+              <h1>{{ App\Models\Stories::count() }}</h1>
               <span>Stories</span>
             </div>
             <div>

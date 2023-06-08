@@ -99,4 +99,14 @@ class DestinationController extends Controller
         $data->delete();
         return redirect('/dashDes')->with('success', 'Record deleted successfully.');
     }
+
+
+    // detail destination
+    public function detail($id)
+    {
+        $data = destination::find($id);
+        $stories = $data->stories;
+        return view('stories', ['data' => $stories, 'title'=> "stories"]);
+    }
+
 }
