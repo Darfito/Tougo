@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\destination;
 use App\Models\Stories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StoriesController extends Controller
 {
@@ -40,12 +41,22 @@ class StoriesController extends Controller
 
     public function store(Request $request)
     {
-        $data = Stories::create($request->all());
+        $user = Auth::user();
         if ($request->hasFile('img')) {
             $request->file('img')->move('storage/img_stories', $request->file('img')->getClientOriginalName());
-            $data->img = $request->file('img')->getClientOriginalName();
-            $data->save();
-        };
+        $img = $request->file('img')->getClientOriginalName();
+        $data = Stories::create(
+            [
+                'name' => $request->name,
+                'city' => $request->city,
+                'konten' => $request->konten,
+                'destination_id' => $request->destination_id,
+                'user_id' => $user->id,
+                'img' => $img,
+                ]
+                );
+            };
+        
         return redirect('/dashSto')->with('success', 'Record saved successfully.');
 
         // Stories::create($validatedData);
