@@ -13,7 +13,7 @@
     <div class="container">
       <h1 class="container--Judul">Tougo</h1>
       <p class="container--tagline">
-        Lorem ipsum dolor sit amet consectetur adipisicing.
+        Embark on Extraordinary Journeys. Unforgettable Adventures Await.
       </p>
       <button class="container--button"><a class="button--text" href="{{ url('login') }}">Start Your Journey</a> </button>
       {{-- <a href="../../Konten/Dashboard/dashboard.html">Login Admin</a> --}}
