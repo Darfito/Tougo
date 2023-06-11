@@ -17,3 +17,5 @@
 
 
  {{-- | Destination <a href="#">{{ $destination -> province }}</a> --}}
+
+ {{-- {{"test"}} --}}
